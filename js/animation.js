@@ -55,12 +55,16 @@ $(document).ready(function(){
     var image = $('#profile-summary').find('.avatar').attr('src');
     var name = 'Chedro';
     var textArea = $('.tweet-compose').val();
-    console.log(image);
+    var time = $.timeago(new Date()); //adding the
+
     newTweetCont.find('.fullname').html(name);
     newTweetCont.find('.avatar').attr('src',image);
     newTweetCont.find('.tweet-text').html(textArea);
+    newTweetCont.find('.time').html(time);
+
     $("#stream").prepend(newTweetCont);
-    console.log();
+
+
     });
 
 
