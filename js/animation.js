@@ -8,6 +8,7 @@ $(document).ready(function(){
 
 
   $('#tweet-controls').hide();
+  $('.tweet-actions').css('display','none');
   //the Tweet button and the character count button should be hidden
   $('.tweet-compose').on('focus',function(){
     $('#tweet-controls').show();
@@ -44,21 +45,25 @@ $(document).ready(function(){
     ////////////add on STREAM////////////
     var newTweetCont = $('.tweet').first().clone();//save the CONTEXT of a tweet
     var image = $('#profile-summary').find('.avatar').attr('src');
-    var name = 'chedro';
+    var name = 'Chedro';
     var textArea = $('.tweet-compose').val();
     console.log(image);
     newTweetCont.find('.fullname').html(name);
     newTweetCont.find('.avatar').attr('src',image);
     newTweetCont.find('.tweet-text').html(textArea);
-
     $("#stream").prepend(newTweetCont);
+    var hoverCall = $('.tweet').hover(function(){
+
+        $(this).find('.tweet-actions').toggle();
+
+    });
+
+
+});
 
 
 
 
-
-
-  });
 
 
 
