@@ -4,11 +4,19 @@ $(document).ready(function(){
 //////////OBJECT TWEET///////////////
 
 /////////////////////////////////////
-
+  // function hoverCallback () {
+  //   console.log('test', this)
+  //   $(this).find('.tweet-actions').toggle();
+  //   $(this).find('.stats').css('display','none');
+  // }
 
 
   $('#tweet-controls').hide();
   $('.tweet-actions').css('display','none');
+  $('.stats').css('display','none');
+
+
+
   //the Tweet button and the character count button should be hidden
   $('.tweet-compose').on('focus',function(){
     $('#tweet-controls').show();
@@ -52,16 +60,22 @@ $(document).ready(function(){
     newTweetCont.find('.avatar').attr('src',image);
     newTweetCont.find('.tweet-text').html(textArea);
     $("#stream").prepend(newTweetCont);
-    var hoverCall = $('.tweet').hover(function(){
-
-        $(this).find('.tweet-actions').toggle();
-
+    console.log();
     });
 
 
+$(document).on('mouseenter','.tweet', function() {
+  $(this).find('.tweet-actions').show();
 });
 
+$(document).on('mouseleave','.tweet', function() {
+  $(this).find('.tweet-actions').hide();
+  $(this).find('.stats').hide();
+});
 
+$(document).on('click','.tweet',function(){
+  $(this).find('.stats').show();
+});
 
 
 
